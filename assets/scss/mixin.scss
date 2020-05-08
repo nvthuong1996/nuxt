@@ -1,0 +1,88 @@
+// Nó phù hợp trong trường hợp muốn bỏ qua ko define 1 padding nào đó.
+// padding(1px, null, 3px, 4px); nhanh hơn là viết padding-top:1px; padding-bottom:3px; padding-left:4px;
+//Padding mixin
+@mixin padding($top, $right, $bottom, $left) {
+    padding-top: $top;
+    padding-right: $right;
+    padding-bottom: $bottom;
+    padding-left: $left;
+}
+
+//Margin mixin
+@mixin margin($top, $right, $bottom, $left) {
+    margin-top: $top;
+    margin-right: $right;
+    margin-bottom: $bottom;
+    margin-left: $left;
+}
+
+
+@mixin center($position) {
+    position: absolute;
+
+    @if $position=='vertical' {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+
+    @else if $position=='horizontal' {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translate(-50%);
+    }
+
+    @else if $position=='both' {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+$breakpoint-sm: 768px;
+$breakpoint-md: 992px;
+$breakpoint-lg: 1200px;
+$breakpoint-xl: 1920px;
+
+@mixin screen($size, $type: min, $pixels: $breakpoint-sm) {
+    $tmp: $type + -width;
+
+    @if $size=='sm' {
+        @media screen and ($tmp: $breakpoint-sm) {
+            @content;
+        }
+    }
+
+    @else if $size=='md' {
+        @media screen and ($tmp: $breakpoint-md) {
+            @content;
+        }
+    }
+
+    @else if $size=='lg' {
+        @media screen and ($tmp: $breakpoint-lg) {
+            @content;
+        }
+    }
+
+    @else if $size=='xl' {
+        @media screen and ($tmp: $breakpoint-xl) {
+            @content;
+        }
+    }
+
+    @else if $size=='custom' {
+        @media screen and ($tmp: $pixels + px) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
