@@ -142,7 +142,7 @@ Như nói trong phần Store thì state của loại component này chính là l
 
 >doc: https://vuejs.org/v2/style-guide/
 
-### Tên prop component và event
+### Tên prop, component và event
 
 Tên prop và component nên được khai báo với kiểu camelCase nhưng được truyền vào được dạng kebab-case
 ```
