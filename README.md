@@ -104,7 +104,7 @@ inject('axios', axios) // inject vào this của store
 Chứa các mixin của project sử dụng để nhúng vào toàn cục thông qua plugin hoặc chỉ sử dụng trong component
 
 ## Models
-Chứa các object tồn tại trong app.
+Chứa các class tồn tại trong app.
 
 ## Components
 Components chia thành 2 loại:
@@ -186,7 +186,7 @@ this.emit('user-click')
 
 Tóm lại thì 1 cái data trong vue phải được khai báo đầy đủ thuộc tính trước để thuộc tính đó thể Reactivity ( vue tự render lại khi thuộc tính đó thay đổi ). nếu không thì phải dùng this.$set https://vuejs.org/v2/api/#vm-set-target-propertyName-index-value
 
-> Với dạng mảng vuejs có thể theo dõi được các phương thức push() pop() shift() unshift() splice() sort() reverse() là có thể Reactivity . Những cái này được mô tả trong tài liệu của vuejs https://vuejs.org/v2/guide/list.html
+> Với dạng mảng vuejs có thể theo dõi được các phương thức push() pop() shift() unshift() splice() sort() reverse() . Những cái này được mô tả trong tài liệu của vuejs https://vuejs.org/v2/guide/list.html
 
 Giả sử ta đã có 1 state của vue là listTodo. trong trường hợp dưới đây hãy đoán xem thuộc tính date có được Reactivity không ?
 ```
